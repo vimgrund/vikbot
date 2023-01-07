@@ -14,7 +14,6 @@ def main():
 
     @bot.event
     async def on_message(msg):
-        Str3ckenKenn7niss
         if msg.author == bot.user:
             return
         if not msg.content.startswith("!"):

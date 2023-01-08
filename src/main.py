@@ -22,6 +22,10 @@ def main():
         author = str(msg.author)
         print(f"new message from {author}: {msg.content}")
 
+        if msg.content == "!id":
+            await msg.channel.send(f"{author} -> {msg.author.id}")
+            return
+
         author_name = "#".join(author.split('#')[0:-1])
 
         if author not in masterAccounts:
@@ -49,6 +53,8 @@ def main():
             return
 
         await msg.channel.send(f"Hallo {author_name}, wie kann ich dienen? \nTippe \"!help\" für eine Beschreibung meiner Fähigkeiten")
+
+
 
     # start_heartbeat()
     DISCORD_TOKEN = os.environ['VB_DISCORD_TOKEN']

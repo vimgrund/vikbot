@@ -1,0 +1,6 @@
+DISCORD_TOKEN={yourBotsToken}
+MASTER_ACCOUNTS="{yourDicordAccouId},{anotherAdminsAccountId}"
+VB_URL={publicUrl}
+VB_FTP_HOST={ftpHost}
+VB_FTP_USER={ftpUser}
+VB_FTP_PW={ftpUserPW}

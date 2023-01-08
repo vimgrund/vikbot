@@ -1,0 +1,59 @@
+= vikbot
+
+I'm lazy so I want to let someone else do task for me
+
+image::media/es_lebt.png[]
+
+My Bot can:
+
+- say hello to strangers, but only follow my orders
+- upload files to an ftp server for me
+
+== run
+
+you'll need to configer to Environment Variables
+
+* Token of your Discord Bot (https://discord.com/developers/applications)
+
+* List of your "Admins"
+
+[source,bash]
+----
+export DISCORD_TOKEN={yourBotsToken}
+export MASTER_ACCOUNTS="{yourDicordAccouId},{anotherAdminsAccountId}"
+export VB_URL={publicUrl}
+export VB_FTP_HOST={ftpHost}
+export VB_FTP_USER={ftpUser}
+export VB_FTP_PW={ftpUserPW}
+
+pip install -r requirements.txt
+python src/main.py
+----
+
+
+== Debug
+
+copy `.envTemplate` to `.env` and fill with your Information
+
+launch.json
+
+[source, json]
+----
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Discord Bot",
+            "type": "python",
+            "request": "launch",
+            "program": "src/main.py",
+            "console": "integratedTerminal",
+            "envFile": "${workspaceFolder}/.env",
+            "justMyCode": true
+        }
+    ]
+}
+----

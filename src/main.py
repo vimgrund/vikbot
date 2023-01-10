@@ -1,8 +1,6 @@
 import discord
-import json
-import requests
+import logging
 import os
-from heartbeat import start_heartbeat
 from utils import *
 
 
@@ -20,7 +18,7 @@ def main():
             return
 
         author = str(msg.author)
-        print(f"new message from {author}: {msg.content}")
+        logging.info(f"new message from {author}: {msg.content}")
 
         if msg.content == "!id":
             await msg.channel.send(f"{author} -> {msg.author.id}")
@@ -62,8 +60,6 @@ def main():
 
         await msg.channel.send(f"Hallo {author_name}, wie kann ich dienen? \nTippe \"!help\" für eine Beschreibung meiner Fähigkeiten")
 
-
-
     # start_heartbeat()
     DISCORD_TOKEN = os.environ['VB_DISCORD_TOKEN']
     bot.run(DISCORD_TOKEN)
@@ -71,4 +67,7 @@ def main():
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                        filename='../vikbot.log', encoding='utf-8', level=logging.INFO)
+    logging.info("nothing to say, just starting my day ¯\_ (ツ)_/¯")
     main()

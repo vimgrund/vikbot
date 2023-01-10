@@ -1,3 +1,4 @@
+import logging
 import pysftp
 import requests
 import os
@@ -19,6 +20,7 @@ def ftp_1_upload(file, prefix=""):
     url = os.environ['VB_URL_1']
     return ftp_upload(file, prefix, host, username, password, url)
 
+
 def ftp_2_upload(file, prefix=""):
     # credentials of targeted sftp server
     host = os.environ['VB_FTP_2_HOST']
@@ -27,12 +29,13 @@ def ftp_2_upload(file, prefix=""):
     url = os.environ['VB_URL_2']
     return ftp_upload(file, prefix, host, username, password, url)
 
+
 def ftp_upload(file, prefix, host, username, password, url):
     result = "¯\_ (ツ)_/¯"
     try:
         with pysftp.Connection(host=host,
                                username=username, password=password) as conn:
-            print("connection established successfully")
+            logging.DEBUG("connection established successfully")
             # file path of local file and targeted location
             filename = file.split('/')[-1]
             target_location = f'/httpdocs/{prefix}{filename}'
@@ -40,6 +43,7 @@ def ftp_upload(file, prefix, host, username, password, url):
             conn.put(file, target_location)
             conn.close()
             result = f"{url}{prefix}{filename}"
+            logging.info(f"file stored at {result}")
     except:
         result = 'failed to establish connection to targeted server'
     return result

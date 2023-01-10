@@ -34,6 +34,13 @@ def main():
             await msg.channel.send("pong")
             return
 
+        if msg.content == "!log":
+            with open("../vikbot.log", 'r', encoding='utf-8') as log:
+                lines = log.readlines()
+                for line in lines:
+                    await msg.channel.send("`" + line + "`")
+            return
+
         if msg.content == "!schuh":
             for pic in msg.attachments:
                 url = pic.url
@@ -67,7 +74,7 @@ def main():
 
 if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S', 
                         filename='../vikbot.log', encoding='utf-8', level=logging.INFO)
-    logging.info("nothing to say, just starting my day ¯\_ (ツ)_/¯")
+    logging.info("nothing to say, just starting my day ¯\_(ツ)_/¯")
     main()

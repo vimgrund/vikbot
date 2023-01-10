@@ -3,7 +3,7 @@ import json
 import requests
 import os
 from heartbeat import start_heartbeat
-from utils import download_pic, ftp_upload
+from utils import *
 
 
 def main():
@@ -36,11 +36,19 @@ def main():
             await msg.channel.send("pong")
             return
 
+        if msg.content == "!schuh":
+            for pic in msg.attachments:
+                url = pic.url
+                filename = download_pic(url)
+                link = ftp_2_upload(filename, prefix="/vikbot/")
+                os.remove(filename)
+                await msg.channel.send(f"Hallo {author_name}, file {filename.split('/')[-1]} gespeichert\n{link}")
+            return
         if msg.content == "!sticker":
             for pic in msg.attachments:
                 url = pic.url
                 filename = download_pic(url)
-                link = ftp_upload(filename, prefix="/vikbot/")
+                link = ftp_1_upload(filename, prefix="/img/stricker/")
                 os.remove(filename)
                 await msg.channel.send(f"Hallo {author_name}, file {filename.split('/')[-1]} gespeichert\n{link}")
             return

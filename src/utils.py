@@ -11,12 +11,23 @@ def download_pic(url):
     return filename
 
 
-def ftp_upload(file, prefix=""):
+def ftp_1_upload(file, prefix=""):
     # credentials of targeted sftp server
-    host = os.environ['VB_FTP_HOST']
-    username = os.environ['VB_FTP_USER']
-    password = os.environ['VB_FTP_PW']
-    url = os.environ['VB_URL']
+    host = os.environ['VB_FTP_1_HOST']
+    username = os.environ['VB_FTP_1_USER']
+    password = os.environ['VB_FTP_1_PW']
+    url = os.environ['VB_URL_1']
+    return ftp_upload(file, prefix, host, username, password, url)
+
+def ftp_2_upload(file, prefix=""):
+    # credentials of targeted sftp server
+    host = os.environ['VB_FTP_2_HOST']
+    username = os.environ['VB_FTP_2_USER']
+    password = os.environ['VB_FTP_2_PW']
+    url = os.environ['VB_URL_2']
+    return ftp_upload(file, prefix, host, username, password, url)
+
+def ftp_upload(file, prefix, host, username, password, url):
     result = "¯\_ (ツ)_/¯"
     try:
         with pysftp.Connection(host=host,

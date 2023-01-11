@@ -1,5 +1,5 @@
-DISCORD_TOKEN={yourBotsToken}
-MASTER_ACCOUNTS="{yourDicordAccouId},{anotherAdminsAccountId}"
+VB_DISCORD_TOKEN={yourBotsToken}
+VB_MASTER_ACCOUNTS="{yourDicordAccouId},{anotherAdminsAccountId}"
 VB_URL={publicUrl}
 VB_FTP_HOST={ftpHost}
 VB_FTP_USER={ftpUser}

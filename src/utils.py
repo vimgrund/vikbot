@@ -35,7 +35,7 @@ def ftp_upload(file, prefix, host, username, password, url):
     try:
         with pysftp.Connection(host=host,
                                username=username, password=password) as conn:
-            logging.DEBUG("connection established successfully")
+            logging.debug("connection established successfully")
             # file path of local file and targeted location
             filename = file.split('/')[-1]
             target_location = f'/httpdocs/{prefix}{filename}'
@@ -45,5 +45,5 @@ def ftp_upload(file, prefix, host, username, password, url):
             result = f"{url}{prefix}{filename}"
             logging.info(f"file stored at {result}")
     except:
-        result = 'failed to establish connection to targeted server'
+        logging.info(f"failed to establish connection to targeted {host}")
     return result

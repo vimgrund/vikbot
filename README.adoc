@@ -19,10 +19,29 @@ you'll need to configer to Environment Variables
 
 * FTP-Credentials
 
+Copy template and fill in your stuff
+
 [source,bash]
 ----
 pip install -r requirements.txt
+cp runTemplate.sh run.sh
+[...]
 ./run.sh
+----
+
+or export on the fly
+
+[source,bash]
+----
+export DISCORD_TOKEN={yourBotsToken}
+export MASTER_ACCOUNTS="{yourDicordAccouId},{anotherAdminsAccountId}"
+export VB_URL_1={publicUrl}
+export VB_FTP_1_HOST={ftpHost}
+export VB_FTP_1_USER={ftpUser}
+export VB_FTP_1_PW={ftpUserPW}
+
+python src/main.py
+
 ----
 
 
@@ -52,3 +71,9 @@ launch.json
     ]
 }
 ----
+
+== Based on
+
+Inspirations
+
+- https://www.youtube.com/watch?v=dqYqE46zqok

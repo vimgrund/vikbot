@@ -68,6 +68,7 @@ def main():
             return
         if msg.content.startswith("!") and len(msg.content) > 1:
             await msg.channel.send("¯\\_(ツ)_/¯")
+            return
         await msg.channel.send(f"Hallo {author_name}, wie kann ich dienen? \nTippe \"!help\" für eine Beschreibung meiner Fähigkeiten")
 
     # start_heartbeat()

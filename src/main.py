@@ -46,7 +46,8 @@ def main():
                 url = pic.url
                 filename = download_pic(url)
                 link = ftp_2_upload(filename, prefix="/vikbot/")
-                os.remove(filename)
+                if not link == "¯\_ (ツ)_/¯":
+                    os.remove(filename)
                 await msg.channel.send(f"Hallo {author_name}, file {filename.split('/')[-1]} gespeichert\n{link}")
             return
         if msg.content == "!sticker":
@@ -54,7 +55,8 @@ def main():
                 url = pic.url
                 filename = download_pic(url)
                 link = ftp_1_upload(filename, prefix="/img/stricker/")
-                os.remove(filename)
+                if not link == "¯\_ (ツ)_/¯":
+                    os.remove(filename)
                 await msg.channel.send(f"Hallo {author_name}, file {filename.split('/')[-1]} gespeichert\n{link}")
             return
 

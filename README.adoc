@@ -1,4 +1,4 @@
-= vikbot
+= vikbot a Discord Bot
 
 I'm lazy so I want to let someone else do task for me
 

@@ -31,7 +31,7 @@ def ftp_2_upload(file, prefix=""):
 
 
 def ftp_upload(file, prefix, host, username, password, url):
-    result = "¯\_ (ツ)_/¯"
+    result = "¯\\_(ツ)_/¯"
     try:
         with pysftp.Connection(host=host,username=username, password=password) as conn:
             logging.info("connection established successfully")

@@ -67,7 +67,7 @@ def main():
                                    + "\n\"!ping\" beantworte ich mit \"pong\"")
             return
         if msg.content.startswith("!") and len(msg.content) > 1:
-            await msg.channel.sent("¯\\_(ツ)_/¯")
+            await msg.channel.send("¯\\_(ツ)_/¯")
         await msg.channel.send(f"Hallo {author_name}, wie kann ich dienen? \nTippe \"!help\" für eine Beschreibung meiner Fähigkeiten")
 
     # start_heartbeat()

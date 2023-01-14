@@ -1,5 +1,7 @@
 = vikbot a Discord Bot
 
+IMPORTANT: already legacy code q-: New Project at https://gitlab.com/vimgrund/dotbot[dotBot@gitlab]
+
 I'm lazy so I want to let someone else do task for me
 
 image::media/es_lebt.png[]
